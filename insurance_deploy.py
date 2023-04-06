@@ -51,8 +51,8 @@ if (selected == "Insurance Prediction"):
     df = pd.DataFrame(data, index=[0])
     insurance_prediction_output = ""
     if sl.button('Insurance Claim'):
-        insurance_prediction = model.predict([[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]])
+        insurance_prediction = model.predict(df)
         insurance_prediction_output = f"The insurance claim is predicted to be {insurance_prediction}"
 
-
+# [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
     sl.success(insurance_prediction_output)
