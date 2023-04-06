@@ -46,7 +46,6 @@ if (selected == "Insurance Prediction"):
             'Date_of_Occupancy' : Date_of_Occupancy,
             'NumberOfWindows' : NumberOfWindows,
             'Geo_Code' : Geo_Code,
-            'Claim' : Claim,
              }
 
     df = pd.DataFrame(data, index=[0])
