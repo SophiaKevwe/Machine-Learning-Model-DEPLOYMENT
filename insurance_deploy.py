@@ -80,7 +80,10 @@ if (selected == "Insurance Prediction"):
     insurance_prediction_output = ""
     if sl.button('Insurance Claim'):
         insurance_prediction = model.predict(datadf)
-        insurance_prediction_output = f"The insurance claim is predicted to be {insurance_prediction}"
+        if insurance_prediction[0] == 0:
+            insurance_prediction_output = f"The insurance claim is predicted to be {insurance_prediction} which states no"
+        if insurance_prediction[0] == 1:
+            insurance_prediction_output = f"The insurance claim is predicted to be {insurance_prediction} which states yes"
 
 # [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
     sl.success(insurance_prediction_output)
