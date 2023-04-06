@@ -47,11 +47,39 @@ if (selected == "Insurance Prediction"):
             'NumberOfWindows' : NumberOfWindows,
             'Geo_Code' : Geo_Code,
              }
+    
 
-    df = pd.DataFrame(data, index=[0])
+    datadf = pd.DataFrame(data, index=[0])
+    if datadf['Building_Painted'].values == 'no':
+        datadf[['Building_Painted_N', 'Building_Painted_V']] = [0.0,1.0]
+  
+    if datadf['Building_Painted'].values == 'yes':
+      datadf[['Building_Painted_N', 'Building_Painted_V']] = [1.0,0.0]
+
+    if datadf['Building_Fenced'].values == 'no':
+      datadf[["Building_Fenced_N","Building_Fenced_V"]] = [1.0,0.0]
+
+    if datadf['Building_Fenced'].values == 'yes':
+      datadf[["Building_Fenced_N","Building_Fenced_V"]] = [0.0,1.0]
+
+    if datadf['Garden'].values == 'no':
+      datadf[["Garden_O","Garden_V"]] = [1.0,0.0]
+
+    if datadf['Garden'].values == 'yes':
+      datadf[["Garden_O","Garden_V"]] = [0.0,1.0]
+
+    if datadf['Settlement'].values == 'urban':
+      datadf[["Settlement_R","Settlement_U"]] = [0.0,1.0]
+
+    if datadf['Settlement'].values == 'rural':
+      datadf[["Settlement_R","Settlement_U"]] = [1.0,0.0]
+    datadf = datadf.drop(columns=["Building_Painted","Building_Fenced","Garden","Settlement"],axis=1)
+    scaler = StandardScaler()
+    datadf[['YearOfObservation', 'Insured_Period',"Residential","Building_Type","Building Dimension","Date_of_Occupancy","NumberOfWindows","Geo_Code"]] = StandardScaler().fit_transform(datadf[['YearOfObservation', 'Insured_Period',"Residential","Building_Type","Building Dimension","Date_of_Occupancy","NumberOfWindows","Geo_Code"]])
+    
     insurance_prediction_output = ""
     if sl.button('Insurance Claim'):
-        insurance_prediction = model.predict(df)
+        insurance_prediction = model.predict(datadf)
         insurance_prediction_output = f"The insurance claim is predicted to be {insurance_prediction}"
 
 # [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
