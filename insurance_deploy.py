@@ -7,7 +7,7 @@ model = pickle.load(open('insurance.pkl', 'rb'))
 selected = option_menu('Insurance Prediction Program',['Insurance Prediction'],icons=["shield-check"],default_index=0) #bootstrap icons
 if (selected == "Insurance Prediction"):
     sl.title('Insurance Prediction using ML')
-    sl.image('insurance.jpg')
+    sl.image('insurance.jpg',width=300, height=300,)
     col1, col2, col3 = sl.columns(3)
     with col1:
         YearOfObservation = sl.number_input('Year Of Observation', min_value=2000, max_value=2023, step=1)
