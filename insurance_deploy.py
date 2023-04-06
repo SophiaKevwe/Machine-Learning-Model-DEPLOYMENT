@@ -8,8 +8,8 @@ colx, coly = sl.beta_columns([1, 3])
 with colx:
     selected = option_menu('Insurance Prediction Program', ['Insurance Prediction'], icons=["shield-check"], default_index=0)
 with coly:
-    st.title('Insurance Prediction')
-    st.image('insurance.jpg', width=300)
+    sl.title('Insurance Prediction')
+    sl.image('insurance.jpg', width=300)
 if (selected == "Insurance Prediction"):
     sl.title('Insurance Prediction using ML')
     sl.image('insurance.jpg',width=300)
