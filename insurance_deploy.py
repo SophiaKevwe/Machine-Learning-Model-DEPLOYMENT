@@ -7,7 +7,7 @@ model = pickle.load(open('insurance.pkl', 'rb'))
 colx, coly = sl.beta_columns([1, 3])
 with colx:
     selected = option_menu('Insurance Prediction Program', ['Insurance Prediction'], icons=["shield-check"], default_index=0)
-with col2:
+with coly:
     st.title('Insurance Prediction')
     st.image('insurance.jpg', width=300)
 if (selected == "Insurance Prediction"):
