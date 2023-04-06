@@ -31,7 +31,7 @@ if (selected == "Insurance Prediction"):
     with col3:
         Garden = sl.selectbox('Garden', ['no', 'yes'])
     with col3:
-        Settlement = sl.selectbox('Settlement', ['no', 'yes'])
+        Settlement = sl.selectbox('Settlement', ['rural', 'urban'])
     
     data = {
             'YearOfObservation': YearOfObservation,
@@ -51,7 +51,7 @@ if (selected == "Insurance Prediction"):
     df = pd.DataFrame(data, index=[0])
     insurance_prediction_output = ""
     if sl.button('Insurance Claim'):
-        insurance_prediction = model.predict([YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code])
+        insurance_prediction = model.predict([[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]])
         insurance_prediction_output = f"The insurance claim is predicted to be {insurance_prediction}"
 
 
