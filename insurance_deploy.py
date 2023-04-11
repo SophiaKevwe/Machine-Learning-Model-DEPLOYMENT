@@ -129,8 +129,8 @@ if (selected == "Bank Account Prediction"):
             'marital_status' : marital_status,
             'education_level' : education_level,
             'job_type' : job_type,
-            'year' : year
-             }
+            'year' : year,
+            }
     
 
     datadf = pd.DataFrame(data, index=[0])
