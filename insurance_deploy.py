@@ -3,14 +3,12 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 import pickle
 import streamlit as sl
 from streamlit_option_menu import option_menu
-# model2 = pickle.load(open('financial.pkl', 'rb'))
 with sl.sidebar:
-    selected = option_menu('Machine Leanring Programs', ['Insurance Prediction',"Bank Account Prediction"], icons=["shield-check","credit-card-fill"], default_index=0)
+    selected = option_menu('Machine Learning Programs', ['Insurance Prediction',"Bank Account Prediction"], icons=["shield-check","credit-card-fill"], default_index=0)
     selected
 if (selected == "Insurance Prediction"):
     model = pickle.load(open('insurance.pkl', 'rb'))
-    sl.title('Insurance Prediction')
-    sl.image('insurance.jpg', width=300)
+    sl.image('insurance.jpg', width=400)
     sl.title('Insurance Prediction using ML')
     col1, col2, col3 = sl.columns(3)
     with col1:
@@ -92,11 +90,10 @@ if (selected == "Insurance Prediction"):
 
 # [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
     sl.success(insurance_prediction_output)
-if (selected == "Insurance Prediction"):
-    model = pickle.load(open('insurance.pkl', 'rb'))
-    sl.title('Insurance Prediction')
-    sl.image('insurance.jpg', width=300)
-    sl.title('Insurance Prediction using ML')
+if (selected == "Bank Account Prediction"):
+    model = pickle.load(open('financial.pkl', 'rb'))
+    sl.image('bankaccount.png', width=400)
+    sl.title('Bank Account Prediction Using ML')
     col1, col2, col3 = sl.columns(3)
     with col1:
         YearOfObservation = sl.number_input('Year Of Observation', min_value=2000, max_value=2023, step=1)
