@@ -80,7 +80,7 @@ if (selected == "Insurance Prediction"):
     scaler = StandardScaler()
     datadf[['YearOfObservation', 'Insured_Period',"Residential","Building_Type","Building Dimension","Date_of_Occupancy","NumberOfWindows","Geo_Code"]] = StandardScaler().fit_transform(datadf[['YearOfObservation', 'Insured_Period',"Residential","Building_Type","Building Dimension","Date_of_Occupancy","NumberOfWindows","Geo_Code"]])
     
-    insurance_prediction_output = ""
+    insurance_prediction_output = " "
     if sl.button('Insurance Claim'):
         insurance_prediction = model.predict(datadf)
         if insurance_prediction[0] == 0:
