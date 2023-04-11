@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 import pickle
-from xgboost.sklearn import XGBClassifier
 import streamlit as sl
 from streamlit_option_menu import option_menu
 with sl.sidebar:
