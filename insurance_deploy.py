@@ -91,7 +91,7 @@ if (selected == "Insurance Prediction"):
 # [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
     sl.success(insurance_prediction_output)
 if (selected == "Bank Account Prediction"):
-    model = pickle.load(open('financial.pkl', 'rb'))
+    model2 = pickle.load(open('financial.pkl', 'rb'))
     sl.image('bankaccount.png', width=400)
     sl.title('Bank Account Prediction Using ML')
     col1, col2, col3 = sl.columns(3)
@@ -213,11 +213,11 @@ if (selected == "Bank Account Prediction"):
     datadf[['year','household_size',"age_of_respondent"]] = StandardScaler().fit_transform(datadf[['year','household_size',"age_of_respondent"]])
     finance_prediction_output = ""
     if sl.button('Bank Account Status'):
-        finance_prediction = model.predict(datadf)
+        finance_prediction = model2.predict(datadf)
         if finance_prediction[0] == 0:
-            finance_prediction_output = f"The insurance claim is predicted to be {finance_prediction} which states there's no claim"
+            finance_prediction_output = f"The bank account status is predicted to be {finance_prediction} which states there's an account"
         if finance_prediction[0] == 1:
-            finance_prediction_output = f"The insurance claim is predicted to be {finance_prediction} which states there's a claim"
+            finance_prediction_output = f"The bank account status is predicted to be {finance_prediction} which states there's an account"
 
 # [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
     sl.success(finance_prediction_output)
