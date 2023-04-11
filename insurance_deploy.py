@@ -4,13 +4,11 @@ import pickle
 import streamlit as sl
 from streamlit_option_menu import option_menu
 model = pickle.load(open('insurance.pkl', 'rb'))
-colx, coly = sl.beta_columns([1, 3])
-with colx:
-    selected = option_menu('Insurance Prediction Program', ['Insurance Prediction'], icons=["shield-check"], default_index=0)
-with coly:
+model2 = pickle.load(open('financial.pkl', 'rb'))
+selected = option_menu('Machine Leanring Programs', ['Insurance Prediction',"Bank Account Prediction"], icons=["shield-check","credit-card-fill"], default_index=0)
+if (selected == "Insurance Prediction"):
     sl.title('Insurance Prediction')
     sl.image('insurance.jpg', width=300)
-if (selected == "Insurance Prediction"):
     sl.title('Insurance Prediction using ML')
     col1, col2, col3 = sl.columns(3)
     with col1:
