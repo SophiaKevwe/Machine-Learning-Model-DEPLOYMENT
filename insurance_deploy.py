@@ -3,10 +3,10 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 import pickle
 import streamlit as sl
 from streamlit_option_menu import option_menu
-model = pickle.load(open('insurance.pkl', 'rb'))
-model2 = pickle.load(open('financial.pkl', 'rb'))
+# model2 = pickle.load(open('financial.pkl', 'rb'))
 selected = option_menu('Machine Leanring Programs', ['Insurance Prediction',"Bank Account Prediction"], icons=["shield-check","credit-card-fill"], default_index=0)
 if (selected == "Insurance Prediction"):
+    model = pickle.load(open('insurance.pkl', 'rb'))
     sl.title('Insurance Prediction')
     sl.image('insurance.jpg', width=300)
     sl.title('Insurance Prediction using ML')
