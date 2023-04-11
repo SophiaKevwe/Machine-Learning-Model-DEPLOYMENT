@@ -91,7 +91,7 @@ if (selected == "Insurance Prediction"):
 # [[YearOfObservation,Insured_Period,Residential,Building_Painted,Building_Fenced,Garden,Settlement,Building_Dimension,Building_Type,Date_of_Occupancy,NumberOfWindows,Geo_Code]]
     sl.success(insurance_prediction_output)
 if (selected == "Bank Account Prediction"):
-    model = pickle.load(open('financial.pkl', 'rb'))
+    model2 = pickle.load(open('financial.pkl', 'rb'))
     sl.image('bankaccount.png', width=400)
     sl.title('Bank Account Prediction Using ML')
     col1, col2, col3 = sl.columns(3)
