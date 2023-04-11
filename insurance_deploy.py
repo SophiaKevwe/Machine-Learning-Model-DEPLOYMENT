@@ -119,17 +119,17 @@ if (selected == "Bank Account Prediction"):
         location_type = sl.selectbox('Location Type', ['Rural', 'Urban'])
     
     data = {
-            'location_type': location_type,
-            'country' : country,
-            'gender_of_respondent' : gender_of_respondent,
-            'cellphone_access': cellphone_access,
-            'household_size' : household_size,
-            'age_of_respondent' : age_of_respondent,
-            'relationship_with_head' : relationship_with_head,
-            'marital_status' : marital_status,
-            'education_level' : education_level,
-            'job_type' : job_type,
-            'year' : year,
+        'country' : country,
+        'year' : year,
+        'location_type': location_type,
+        'cellphone_access': cellphone_access,
+        'household_size' : household_size, 
+        'age_of_respondent' : age_of_respondent,
+        'gender_of_respondent' : gender_of_respondent,
+        'relationship_with_head' : relationship_with_head,
+        'marital_status' : marital_status,
+        'education_level' : education_level,
+        'job_type' : job_type,
             }
     
 
