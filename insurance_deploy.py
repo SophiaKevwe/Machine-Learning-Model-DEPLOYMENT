@@ -214,6 +214,7 @@ if (selected == "Bank Account Prediction"):
     finance_prediction_output = ""
     with col2:
         sl.write(" ")
+        sl.write(" ")
         if sl.button('Bank Account Status'):
             finance_prediction = model2.predict(datadf)
             if finance_prediction[0] == 0:
