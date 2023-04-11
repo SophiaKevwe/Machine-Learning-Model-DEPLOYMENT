@@ -213,7 +213,7 @@ if (selected == "Bank Account Prediction"):
     datadf[['year','household_size',"age_of_respondent"]] = StandardScaler().fit_transform(datadf[['year','household_size',"age_of_respondent"]])
     finance_prediction_output = ""
     with col2:
-        sl.write("/n")
+        sl.write(" ")
         if sl.button('Bank Account Status'):
             finance_prediction = model2.predict(datadf)
             if finance_prediction[0] == 0:
