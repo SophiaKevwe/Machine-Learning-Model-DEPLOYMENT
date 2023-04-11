@@ -135,7 +135,7 @@ if (selected == "Bank Account Prediction"):
 
     datadf = pd.DataFrame(data, index=[0])
     if datadf["country"].values == "Kenya":
-    datadf[["country_Kenya","country_Rwanda","country_Tanzania","country_Uganda"]] = [1.0,0.0,0.0,0.0]
+        datadf[["country_Kenya","country_Rwanda","country_Tanzania","country_Uganda"]] = [1.0,0.0,0.0,0.0]
     if datadf["country"].values == "Rwanda":
         datadf[["country_Kenya","country_Rwanda","country_Tanzania","country_Uganda"]] = [0.0,1.0,0.0,0.0]
     if datadf["country"].values == "Tanzania":
