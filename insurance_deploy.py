@@ -228,65 +228,121 @@ if (selected == "Disease Prediction"):
     sl.title('Disease Prediction From Symtoms')
     model = pickle.load(open('disease_prediction2.pkl', 'rb'))
     all_symptoms = ['abdominal_pain', 'abnormal_menstruation', 'acidity', 'acute_liver_failure', 'altered_sensorium', 'anxiety', 'back_pain', 'belly_pain', 'blackheads', 'bladder_discomfort', 'blister', 'blood_in_sputum', 'bloody_stool', 'blurred_and_distorted_vision', 'breathlessness', 'brittle_nails', 'bruising', 'burning_micturition', 'chest_pain', 'chills', 'cold_hands_and_feet', 'coma', 'congestion', 'constipation', 'continuous_feel_of_urine', 'continuous_sneezing', 'cough', 'cramps', 'dark_urine', 'dehydration', 'depression', 'diarrhoea', 'dyschromic_patches', 'distention_of_abdomen', 'dizziness', 'drying_and_tingling_lips', 'enlarged_thyroid', 'excessive_hunger', 'extra_marital_contacts', 'family_history', 'fast_heart_rate', 'fatigue', 'fluid_overload','foul_smell_of urine', 'headache', 'high_fever', 'hip_joint_pain', 'history_of_alcohol_consumption', 'increased_appetite', 'indigestion', 'inflammatory_nails', 'internal_itching', 'irregular_sugar_level', 'irritability', 'irritation_in_anus', 'itching', 'joint_pain', 'knee_pain', 'lack_of_concentration', 'lethargy', 'loss_of_appetite', 'loss_of_balance', 'loss_of_smell', 'loss_of_taste', 'malaise', 'mild_fever', 'mood_swings', 'movement_stiffness', 'mucoid_sputum', 'muscle_pain', 'muscle_wasting', 'muscle_weakness', 'nausea', 'neck_pain', 'nodal_skin_eruptions', 'obesity', 'pain_behind_the_eyes', 'pain_during_bowel_movements', 'pain_in_anal_region', 'painful_walking', 'palpitations', 'passage_of_gases', 'patches_in_throat', 'phlegm', 'polyuria', 'prominent_veins_on_calf', 'puffy_face_and_eyes', 'pus_filled_pimples', 'receiving_blood_transfusion', 'receiving_unsterile_injections', 'red_sore_around_nose', 'red_spots_over_body', 'redness_of_eyes', 'restlessness', 'runny_nose', 'rusty_sputum','shivering', 'silver_like_dusting', 'sinus_pressure', 'skin_peeling', 'skin_rash', 'slurred_speech', 'small_dents_in_nails', 'spinning_movements', 'spotting_urination', 'stiff_neck', 'stomach_bleeding', 'stomach_pain', 'sunken_eyes', 'sweating', 'swelled_lymph_nodes', 'swelling_joints', 'swelling_of_stomach', 'swollen_blood_vessels', 'swollen_extremities', 'swollen_legs', 'throat_irritation', 'tiredness', 'toxic_look_(typhus)', 'ulcers_on_tongue', 'unsteadiness', 'visual_disturbances', 'vomiting', 'watering_from_eyes',"weakness_in_limbs", "weakness_of_one_body_side", "weight_gain", "weight_loss", "yellow_crust_ooze", "yellow_urine", "yellowing_of_eyes", "yellowish_skin"]
-    general_symptoms = ['fatigue', 'malaise', 'lethargy', 'loss_of_appetite', 'weight_gain', 'weight_loss', 'fever', 'chills', 'sweating']
-
-    gastrointestinal_symptoms = ['abdominal_pain', 'belly_pain', 'constipation', 'diarrhoea', 'nausea', 'stomach_bleeding', 'stomach_pain', 'vomiting', 'indigestion', 'pain_during_bowel_movements', 'pain_in_anal_region']
-
-    respiratory_symptoms = ['cough', 'breathlessness', 'blood_in_sputum', 'rusty_sputum', 'mucoid_sputum']
-
-    cardiovascular_symptoms = ['chest_pain', 'palpitations', 'fast_heart_rate', 'swollen_legs', 'swollen_extremities', 'swollen_blood_vessels', 'prominent_veins_on_calf']
-
-    neurological_symptoms = ['headache', 'dizziness', 'loss_of_balance', 'slurred_speech', 'movement_stiffness', 'altered_sensorium', 'unsteadiness', 'visual_disturbances', 'weakness_in_limbs', 'weakness_of_one_body_side', 'neck_pain']
-
-    musculoskeletal_symptoms = ['back_pain', 'joint_pain', 'hip_joint_pain', 'knee_pain', 'muscle_pain', 'muscle_wasting', 'muscle_weakness', 'swelling_joints', 'loss_of_balance']
-
-    skin_symptoms = ['skin_rash', 'red_spots_over_body', 'yellowish_skin', 'itching', 'skin_peeling', 'blister', 'blackheads', 'pus_filled_pimples', 'red_sore_around_nose', 'small_dents_in_nails', 'brittle_nails']
-
-    urogenital_symptoms = ['urinary_tract_infection', 'bladder_discomfort', 'burning_micturition', 'continuous_feel_of_urine', 'foul_smell_of_urine', 'polyuria', 'spotting_urination', 'yellow_urine']
-
-    mental_health_symptoms = ['anxiety', 'depression', 'irritability', 'mood_swings', 'lack_of_concentration', 'restlessness', 'coma']
-
-    immune_system_symptoms = ['enlarged_thyroid', 'history_of_alcohol_consumption', 'inflammatory_nails', 'nodal_skin_eruptions', 'obesity', 'toxic_look_(typhus)']
+    gastrointestinal_symptoms = ['None','abdominal_pain', 'abnormal_menstruation', 'acidity', 'belly_pain', 'blackheads', 'bladder_discomfort', 'bloody_stool', 'burning_micturition', 'constipation', 'diarrhoea', 'distention_of_abdomen', 'indigestion', 'pain_during_bowel_movements', 'pain_in_anal_region', 'stomach_bleeding', 'stomach_pain', 'ulcers_on_tongue']
+    Cardiovascular = ['None','chest_pain', 'fast_heart_rate', 'prominent_veins_on_calf', 'swollen_blood_vessels']
+    Respiratory= ['None','blood_in_sputum', 'breathlessness', 'cough', 'mild_fever', 'phlegm', 'rusty_sputum']
+    Neurological= ['None','altered_sensorium', 'coma', 'dizziness', 'headache', 'irritability', 'lack_of_concentration', 'lethargy', 'movement_stiffness', 'slurred_speech', 'unsteadiness', 'visual_disturbances']
+    Musculoskeletal = ['None','back_pain', 'brittle_nails', 'bruising', 'joint_pain', 'knee_pain', 'muscle_pain', 'muscle_wasting', 'muscle_weakness', 'neck_pain', 'painful_walking', 'swelling_joints']
+    Genitourinary = ['None','dark_urine', 'excessive_hunger', 'foul_smell_of urine', 'painful_walking', 'polyuria', 'receiving_blood_transfusion', 'receiving_unsterile_injections', 'spotting_urination', 'swollen_extremities', 'yellow_crust_ooze', 'yellow_urine']
+    Skin_Subcutaneous_Tissue= ['None','blister', 'brittle_nails', 'itching', 'nodal_skin_eruptions', 'pus_filled_pimples', 'red_sore_around_nose', 'red_spots_over_body', 'skin_peeling', 'skin_rash', 'small_dents_in_nails', 'yellowing_of_eyes', 'yellowish_skin']
+    Psychiatric= ['None','anxiety', 'depression', 'mood_swings', 'restlessness']
+    Endocrine_Metabolic= ['None','excessive_hunger', 'fatigue', 'increased_appetite', 'irregular_sugar_level', 'weight_gain', 'weight_loss', 'yellowing_of_eyes']
+    Infectious_Parasitic= ['None','acute_liver_failure', 'chills', 'congestion', 'dehydration', 'fever', 'fluid_overload', 'history_of_alcohol_consumption', 'inflamation_nails', 'internal_itching', 'malaria', 'muscle_weakness', 'nausea', 'puffy_face_and_eyes', 'receiving_blood_transfusion', 'receiving_unsterile_injections', 'runny_nose', 'shivering', 'sweating', 'throat_irritation', 'toxic_look_(typhus)', 'vomiting']
+    Ear_Nose_Throat= ['None','throat_irritation', 'patches_in_throat']
+    Hematological= ['None','bruising', 'nose_bleeding']
+    Eye=['None','blurred_and_distorted_vision', 'redness_of_eyes', 'visual_disturbances', 'watering_from_eyes', 'yellowing_of_eyes']
+    Pregnancy=['None','abdominal_pain', 'altered_sensorium', 'back_pain', 'belly_pain', 'breathlessness', 'coma', 'dizziness', 'excessive_hunger', 'fatigue', 'headache', 'lack_of_concentration', 'lethargy', 'mood_swings', 'movement_stiffness', 'nausea', 'pain_behind_the_eyes', 'restlessness', 'slurred_speech', 'vomiting', 'weakness_in_limbs', 'weakness_of_one_body_side', 'weight_gain', 'weight_loss']
+    Immune_System= ['None','continuous_sneezing', 'cough', 'fatigue', 'fever', 'fluid_overload', 'swollen_blood_vessels']
     selected_options=[]
     col1, col2, col3 = sl.columns(3)
     with col1:
-        general_symptoms = sl.selectbox('GENERAL', general_symptoms)
-        selected_options.append(general_symptoms)
+        Immune= sl.multiselect('Immune System', Immune_System)
+        selected_options.extend(Immune)
     with col1:
-        mental_health_symptoms = sl.selectbox('MENTAL HEALTH', mental_health_symptoms)
-        selected_options.append(mental_health_symptoms)
+        Psychiatrics = sl.multiselect('Psychiatric', Psychiatric)
+        selected_options.extend(Psychiatrics)
     with col1:
-        neurological_symptoms = sl.selectbox('NEUROLOGICAL', neurological_symptoms)
-        selected_options.append(neurological_symptoms)
+        neurological_symptoms = sl.multiselect('NEUROLOGICAL', Neurological)
+        selected_options.extend(neurological_symptoms)
+    with col1:
+        Eyes = sl.multiselect('Eye', Eye)
+        selected_options.extend(Eyes)
+    with col1:
+        Ear_Nose_Throats = sl.multiselect('Ear & Nose & Throat', Ear_Nose_Throat)
+        selected_options.extend(Ear_Nose_Throats)
     with col2:
-        skin_symptoms = sl.selectbox('SKIN', skin_symptoms)
-        selected_options.append(skin_symptoms)
+        skin_symptoms = sl.multiselect('SKIN', Skin_Subcutaneous_Tissue)
+        selected_options.extend(skin_symptoms)
     with col2:
-        urogenital_symptoms = sl.selectbox('UROGENITAL', urogenital_symptoms)
-        selected_options.append(urogenital_symptoms)
+        urogenital_symptoms = sl.multiselect('UROGENITAL', Genitourinary)
+        selected_options.extend(urogenital_symptoms)
     with col2:
-        gastrointestinal_symptoms = sl.selectbox('GASTROINTESTINAL', gastrointestinal_symptoms)
-        selected_options.append(gastrointestinal_symptoms)
+        gastrointestinal = sl.multiselect('GASTROINTESTINAL', gastrointestinal_symptoms)
+        selected_options.extend(gastrointestinal)
     with col2:
-        immune_system_symptoms = sl.selectbox('IMMUNE SYSTEMS', immune_system_symptoms)
-        selected_options.append(immune_system_symptoms)
+        Endocrine_Metabolics = sl.multiselect('Endocrine & Metabolic', Endocrine_Metabolic)
+        selected_options.extend(Endocrine_Metabolics)
+    with col2:
+        Pregnancys = sl.multiselect('Pregnancy', Pregnancy)
+        selected_options.extend(Pregnancys)
     with col3:
-        musculoskeletal_symptoms = sl.selectbox('MUSCULAR', musculoskeletal_symptoms)
-        selected_options.append(musculoskeletal_symptoms)
+        musculoskeletal_symptoms = sl.multiselect('MUSCULAR', Musculoskeletal)
+        selected_options.extend(musculoskeletal_symptoms)
     with col3:
-        cardiovascular_symptoms = sl.selectbox('CARDIOVASCULAR',cardiovascular_symptoms)  
-        selected_options.append(cardiovascular_symptoms)  
+        cardiovascular_symptoms = sl.multiselect('CARDIOVASCULAR',Cardiovascular)  
+        selected_options.extend(cardiovascular_symptoms)  
     with col3:
-        respiratory_symptoms = sl.selectbox('RESPIRATORY', respiratory_symptoms)
-        selected_options.append(respiratory_symptoms)
-
-
-
+        respiratory_symptoms = sl.multiselect('RESPIRATORY', Respiratory)
+        selected_options.extend(respiratory_symptoms)
+    with col3:
+        Hematologicals = sl.multiselect('Hematological', Hematological)
+        selected_options.extend(Hematologicals)
+    with col3:
+        Infectious_Parasitics = sl.multiselect('Infectious & Parasitic', Infectious_Parasitic)
+        selected_options.extend(Infectious_Parasitics)
     symptom_dict = {}
+    categories = [gastrointestinal_symptoms,Cardiovascular,Respiratory,Neurological,Musculoskeletal,Genitourinary,Skin_Subcutaneous_Tissue,Psychiatric,Endocrine_Metabolic,Infectious_Parasitic,Ear_Nose_Throat,Hematological,Eye,Pregnancy,Immune_System]
+    if gastrointestinal == "None":
+        for sym in categories[0]:
+            symptom_dict[symptom] = 0
+    if cardiovascular_symptoms == "None":
+        for sym in categories[1]:
+            symptom_dict[symptom] = 0
+    if respiratory_symptoms == "None":
+        for sym in categories[2]:
+            symptom_dict[symptom] = 0
+    if neurological_symptoms == "None":
+        for sym in categories[3]:
+            symptom_dict[symptom] = 0
+    if musculoskeletal_symptoms == "None":
+        for sym in categories[4]:
+            symptom_dict[symptom] = 0
+    if urogenital_symptoms == "None":
+        for sym in categories[5]:
+            symptom_dict[symptom] = 0
+    if skin_symptoms == "None":
+        for sym in categories[6]:
+            symptom_dict[symptom] = 0
+    if Psychiatrics== "None":
+        for sym in categories[7]:
+            symptom_dict[symptom] = 0
+    if Endocrine_Metabolics == "None":
+        for sym in categories[8]:
+            symptom_dict[symptom] = 0
+    if Infectious_Parasitics == "None":
+        for sym in categories[9]:
+            symptom_dict[symptom] = 0
+    if Ear_Nose_Throats == "None":
+        for sym in categories[10]:
+            symptom_dict[symptom] = 0
+    if Hematologicals == "None":
+        for sym in categories[11]:
+            symptom_dict[symptom] = 0
+    if Eyes == "None":
+        for sym in categories[12]:
+            symptom_dict[symptom] = 0
+    if Pregnancys == "None":
+        for sym in categories[13]:
+            symptom_dict[symptom] = 0
+    if Immune == "None":
+        for sym in categories[14]:
+            symptom_dict[symptom] = 0        
+
+
     for symptom in all_symptoms:
-        if symptom in selected_options:
+        if (symptom in selected_options):
             symptom_dict[symptom] = 1
-        else:
+        if ((symptom not in selected_options)and(symtom!="None")):
             symptom_dict[symptom] = 0
 
     data = pd.DataFrame([symptom_dict])
