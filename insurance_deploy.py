@@ -247,27 +247,38 @@ if (selected == "Disease Prediction"):
     mental_health_symptoms = ['anxiety', 'depression', 'irritability', 'mood_swings', 'lack_of_concentration', 'restlessness', 'coma']
 
     immune_system_symptoms = ['enlarged_thyroid', 'history_of_alcohol_consumption', 'inflammatory_nails', 'nodal_skin_eruptions', 'obesity', 'toxic_look_(typhus)']
+    selected_options=[]
     col1, col2, col3 = sl.columns(3)
     with col1:
         general_symptoms = sl.selectbox('GENERAL', general_symptoms)
+        selected_options.append(general_symptoms)
     with col1:
         mental_health_symptoms = sl.selectbox('MENTAL HEALTH', mental_health_symptoms)
+        selected_options.append(mental_health_symptoms)
     with col1:
         neurological_symptoms = sl.selectbox('NEUROLOGICAL', neurological_symptoms)
+        selected_options.append(neurological_symptoms)
     with col2:
         skin_symptoms = sl.selectbox('SKIN', skin_symptoms)
+        selected_options.append(skin_symptoms)
     with col2:
         urogenital_symptoms = sl.selectbox('UROGENITAL', urogenital_symptoms)
+        selected_options.append(urogenital_symptoms)
     with col2:
         gastrointestinal_symptoms = sl.selectbox('GASTROINTESTINAL', gastrointestinal_symptoms)
+        selected_options.append(gastrointestinal_symptoms)
     with col2:
         immune_system_symptoms = sl.selectbox('IMMUNE SYSTEMS', immune_system_symptoms)
+        selected_options.append(immune_system_symptoms)
     with col3:
         musculoskeletal_symptoms = sl.selectbox('MUSCULAR', musculoskeletal_symptoms)
+        selected_options.append(musculoskeletal_symptoms)
     with col3:
-        cardiovascular_symptoms = sl.selectbox('CARDIOVASCULAR',cardiovascular_symptoms)    
+        cardiovascular_symptoms = sl.selectbox('CARDIOVASCULAR',cardiovascular_symptoms)  
+        selected_options.append(cardiovascular_symptoms)  
     with col3:
         respiratory_symptoms = sl.selectbox('RESPIRATORY', respiratory_symptoms)
+        selected_options.append(respiratory_symptoms)
 
 
 
