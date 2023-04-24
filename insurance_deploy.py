@@ -255,7 +255,7 @@ if (selected == "Disease Prediction"):
     with col1:
         neurological_symptoms = sl.selectbox('NEUROLOGICAL', neurological_symptoms)
     with col2:
-        skin_symptoms = sl.selectbox('SKIN', [skin_symptoms])
+        skin_symptoms = sl.selectbox('SKIN', skin_symptoms)
     with col2:
         urogenital_symptoms = sl.selectbox('UROGENITAL', urogenital_symptoms)
     with col2:
