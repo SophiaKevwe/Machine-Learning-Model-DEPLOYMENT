@@ -294,7 +294,7 @@ if (selected == "Disease Prediction"):
     if sl.button("Disease Prediction"):
         disease_prediction = model.predict(data)
         disease_prediction_output=disease_prediction
-    sl.success(finance_prediction_output)
+    sl.success(disease_prediction_output)
 
 
 
