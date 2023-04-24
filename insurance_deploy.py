@@ -347,7 +347,7 @@ if (selected == "Disease Prediction"):
 
     data = pd.DataFrame([symptom_dict])
     disease_prediction_output = ""
-    if sl.button("Disease Prediction"):
+    if sl.button("Predict possible disease"):
         disease_prediction = model.predict(data)
         disease_prediction_output=disease_prediction
     sl.success(disease_prediction_output)
