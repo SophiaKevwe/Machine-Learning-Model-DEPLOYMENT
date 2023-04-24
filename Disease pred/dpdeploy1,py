@@ -1,0 +1,66 @@
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
+import pickle
+import streamlit as sl
+from streamlit_option_menu import option_menu
+model = pickle.load(open('disease_prediction2.pkl', 'rb'))
+all_symptoms = ['abdominal_pain', 'abnormal_menstruation', 'acidity', 'acute_liver_failure', 'altered_sensorium', 'anxiety', 'back_pain', 'belly_pain', 'blackheads', 'bladder_discomfort', 'blister', 'blood_in_sputum', 'bloody_stool', 'blurred_and_distorted_vision', 'breathlessness', 'brittle_nails', 'bruising', 'burning_micturition', 'chest_pain', 'chills', 'cold_hands_and_feet', 'coma', 'congestion', 'constipation', 'continuous_feel_of_urine', 'continuous_sneezing', 'cough', 'cramps', 'dark_urine', 'dehydration', 'depression', 'diarrhoea', 'dyschromic_patches', 'distention_of_abdomen', 'dizziness', 'drying_and_tingling_lips', 'enlarged_thyroid', 'excessive_hunger', 'extra_marital_contacts', 'family_history', 'fast_heart_rate', 'fatigue', 'fluid_overload', 'fluid_overload.1', 'foul_smell_of urine', 'headache', 'high_fever', 'hip_joint_pain', 'history_of_alcohol_consumption', 'increased_appetite', 'indigestion', 'inflammatory_nails', 'internal_itching', 'irregular_sugar_level', 'irritability', 'irritation_in_anus', 'itching', 'joint_pain', 'knee_pain', 'lack_of_concentration', 'lethargy', 'loss_of_appetite', 'loss_of_balance', 'loss_of_smell', 'loss_of_taste', 'malaise', 'mild_fever', 'mood_swings', 'movement_stiffness', 'mucoid_sputum', 'muscle_pain', 'muscle_wasting', 'muscle_weakness', 'nausea', 'neck_pain', 'nodal_skin_eruptions', 'obesity', 'pain_behind_the_eyes', 'pain_during_bowel_movements', 'pain_in_anal_region', 'painful_walking', 'palpitations', 'passage_of_gases', 'patches_in_throat', 'phlegm', 'polyuria', 'prominent_veins_on_calf', 'puffy_face_and_eyes', 'pus_filled_pimples', 'receiving_blood_transfusion', 'receiving_unsterile_injections', 'red_sore_around_nose', 'red_spots_over_body', 'redness_of_eyes', 'restlessness', 'runny_nose', 'rusty_sputum', 'scurrying', 'shivering', 'silver_like_dusting', 'sinus_pressure', 'skin_peeling', 'skin_rash', 'slurred_speech', 'small_dents_in_nails', 'spinning_movements', 'spotting_urination', 'stiff_neck', 'stomach_bleeding', 'stomach_pain', 'sunken_eyes', 'sweating', 'swelled_lymph_nodes', 'swelling_joints', 'swelling_of_stomach', 'swollen_blood_vessels', 'swollen_extremities', 'swollen_legs', 'throat_irritation', 'tiredness', 'toxic_look_(typhus)', 'ulcers_on_tongue', 'unsteadiness', 'visual_disturbances', 'vomiting', 'watering_from_eyes',"weakness_in_limbs", "weakness_of_one_body_side", "weight_gain", "weight_loss", "yellow_crust_ooze", "yellow_urine", "yellowing_of_eyes", "yellowish_skin"]
+general_symptoms = ['fatigue', 'malaise', 'lethargy', 'loss_of_appetite', 'weight_gain', 'weight_loss', 'fever', 'chills', 'sweating']
+
+gastrointestinal_symptoms = ['abdominal_pain', 'belly_pain', 'constipation', 'diarrhoea', 'nausea', 'stomach_bleeding', 'stomach_pain', 'vomiting', 'indigestion', 'pain_during_bowel_movements', 'pain_in_anal_region']
+
+respiratory_symptoms = ['cough', 'breathlessness', 'blood_in_sputum', 'rusty_sputum', 'mucoid_sputum']
+
+cardiovascular_symptoms = ['chest_pain', 'palpitations', 'fast_heart_rate', 'swollen_legs', 'swollen_extremities', 'swollen_blood_vessels', 'prominent_veins_on_calf']
+
+neurological_symptoms = ['headache', 'dizziness', 'loss_of_balance', 'slurred_speech', 'movement_stiffness', 'altered_sensorium', 'unsteadiness', 'visual_disturbances', 'weakness_in_limbs', 'weakness_of_one_body_side', 'neck_pain']
+
+musculoskeletal_symptoms = ['back_pain', 'joint_pain', 'hip_joint_pain', 'knee_pain', 'muscle_pain', 'muscle_wasting', 'muscle_weakness', 'swelling_joints', 'loss_of_balance']
+
+skin_symptoms = ['skin_rash', 'red_spots_over_body', 'yellowish_skin', 'itching', 'skin_peeling', 'blister', 'blackheads', 'pus_filled_pimples', 'red_sore_around_nose', 'small_dents_in_nails', 'brittle_nails']
+
+urogenital_symptoms = ['urinary_tract_infection', 'bladder_discomfort', 'burning_micturition', 'continuous_feel_of_urine', 'foul_smell_of_urine', 'polyuria', 'spotting_urination', 'yellow_urine']
+
+mental_health_symptoms = ['anxiety', 'depression', 'irritability', 'mood_swings', 'lack_of_concentration', 'restlessness', 'coma']
+
+immune_system_symptoms = ['enlarged_thyroid', 'history_of_alcohol_consumption', 'inflammatory_nails', 'nodal_skin_eruptions', 'obesity', 'toxic_look_(typhus)']
+col1, col2, col3 = sl.columns(3)
+with col1:
+    general_symptoms = sl.selectbox('GENERAL', general_symptoms)
+with col1:
+    mental_health_symptoms = sl.selectbox('MENTAL HEALTH', mental_health_symptoms)
+with col1:
+    neurological_symptoms = sl.selectbox('NEUROLOGICAL', neurological_symptoms)
+with col2:
+    skin_symptoms = sl.selectbox('SKIN', [skin_symptoms])
+with col2:
+    urogenital_symptoms = sl.selectbox('UROGENITAL', urogenital_symptoms)
+with col2:
+    gastrointestinal_symptoms = sl.selectbox('GASTROINTESTINAL', gastrointestinal_symptoms)
+with col2:
+    immune_system_symptoms = sl.selectbox('IMMUNE SYSTEMS', immune_system_symptoms)
+with col3:
+    musculoskeletal_symptoms = sl.selectbox('MUSCULAR', musculoskeletal_symptoms)
+with col3:
+    cardiovascular_symptoms = sl.selectbox('CARDIOVASCULAR',cardiovascular_symptoms)    
+with col3:
+    respiratory_symptoms = sl.selectbox('RESPIRATORY', respiratory_symptoms)
+
+
+
+symptom_dict = {}
+for symptom in all_symptoms:
+    if symptom in selected_options:
+        symptom_dict[symptom] = 1
+    else:
+        symptom_dict[symptom] = 0
+
+data = pd.DataFrame([symptom_dict])
+disease_prediction_output = ""
+if sl.button("Disease Prediction"):
+    disease_prediction = model.predict(data)
+    disease_prediction_output=disease_prediction
+sl.success(finance_prediction_output)
+
+
+
