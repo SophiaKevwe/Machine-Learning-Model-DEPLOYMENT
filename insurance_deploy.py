@@ -342,7 +342,7 @@ if (selected == "Disease Prediction"):
     for symptom in all_symptoms:
         if (symptom in selected_options):
             symptom_dict[symptom] = 1
-        if ((symptom not in selected_options)and(symtom!="None")):
+        if ((symptom not in selected_options)and(symptom!="None")):
             symptom_dict[symptom] = 0
 
     data = pd.DataFrame([symptom_dict])
