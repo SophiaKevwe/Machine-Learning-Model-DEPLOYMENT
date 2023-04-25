@@ -245,6 +245,9 @@ if (selected == "Disease Prediction"):
     Immune_System= ['None','continuous_sneezing', 'cough', 'fatigue', 'fever', 'fluid_overload', 'swollen_blood_vessels']
     selected_options=[]
     col1, col2, col3 = sl.columns(3)
+    all_symptoms2=["None",all_symptoms]
+    Search= sl.multiselect('SEARCH', all_symptoms2)
+    selected_options.extend(Search)
     with col1:
         Immune= sl.multiselect('Immune System', Immune_System)
         selected_options.extend(Immune)
