@@ -246,8 +246,6 @@ if (selected == "Disease Prediction"):
     selected_options=[]
     col1, col2, col3 = sl.columns(3)
     all_symptoms2=["None",all_symptoms]
-    Search= sl.multiselect('SEARCH', all_symptoms2)
-    selected_options.extend(Search)
     with col1:
         Immune= sl.multiselect('Immune System', Immune_System)
         selected_options.extend(Immune)
@@ -263,6 +261,9 @@ if (selected == "Disease Prediction"):
     with col1:
         Ear_Nose_Throats = sl.multiselect('Ear & Nose & Throat', Ear_Nose_Throat)
         selected_options.extend(Ear_Nose_Throats)
+    with col1:
+        Search= sl.multiselect('SEARCH', all_symptoms2)
+        selected_options.extend(Search)
     with col2:
         skin_symptoms = sl.multiselect('SKIN', Skin_Subcutaneous_Tissue)
         selected_options.extend(skin_symptoms)
