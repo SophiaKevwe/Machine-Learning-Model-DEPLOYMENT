@@ -1,6 +1,7 @@
 scikit-learn==1.2.2
 pickleshare==0.7.5  
-pandas
+python==3.10.4
+pandas==1.4.3
 streamlit
 streamlit-option-menu
-xgboost
+xgboost==1.7.5
