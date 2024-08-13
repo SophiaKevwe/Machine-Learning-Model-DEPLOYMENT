@@ -1,6 +1,6 @@
-scikit-learn==1.5.1
-python==3.10
-pandas==2.2.2
+scikit-learn==1.4.2
+python==3.12
+pandas==2.2.1
 streamlit
 streamlit-option-menu
 xgboost==2.1.1
